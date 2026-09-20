@@ -32,21 +32,23 @@ nb = MultinomialNB()
 nb.fit(X_dtm, y)
 
 #nobeldf['Lable_num']=nobeldf.Category.map({"chemistry":0,"economics":1,"literature":2,"medicine":3,"peace":4,"physics":5})
-
-df_dtm = vect.transform(df['Text'])
-prediction = nb.predict(df_dtm)
-st.subheader('The prediction of the prize based on your motivation is:')
-if prediction == 0:
-  st.write('Chemistry')
-elif prediction == 1:
-  st.write('Economics')
-elif prediction == 2:
-  st.write('Literature')
-elif prediction == 3:
-  st.write('Medicine')
-elif prediction == 4:
-  st.write('Peace')
-elif prediction == 5:
-  st.write('Physics')
+if df['Text'].iloc[0] == "": 
+    st.subheader('Please enter text to get a prediction.')
 else:
-  st.write('No forecast')
+    df_dtm = vect.transform(df['Text'])
+    prediction = nb.predict(df_dtm)
+    st.subheader('The prediction of the prize based on your motivation is:')
+    if prediction == 0:
+      st.write('Chemistry')
+    elif prediction == 1:
+      st.write('Economics')
+    elif prediction == 2:
+      st.write('Literature')
+    elif prediction == 3:
+      st.write('Medicine')
+    elif prediction == 4:
+      st.write('Peace')
+    elif prediction == 5:
+      st.write('Physics')
+    else:
+      st.write('No forecast')
