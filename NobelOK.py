@@ -36,17 +36,17 @@ nb.fit(X_dtm, y)
 df_dtm = vect.transform(df['Text'])
 prediction = nb.predict(df_dtm)
 st.subheader('The prediction of the prize based on your motivation is:')
-if prediction == 0:
+if prediction == 1:
   st.write('Chemistry')
-elif prediction == 1:
-  st.write('Economics')
 elif prediction == 2:
-  st.write('Literature')
+  st.write('Economics')
 elif prediction == 3:
-  st.write('Medicine')
+  st.write('Literature')
 elif prediction == 4:
-  st.write('Peace')
+  st.write('Medicine')
 elif prediction == 5:
+  st.write('Peace')
+elif prediction == 6:
   st.write('Physics')
 else:
   st.write('No forecast')
